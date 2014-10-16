@@ -1,0 +1,5 @@
+1 generate the obj for the main class
+i686-w64-mingw32-g++ -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/win32" -I"../win32/include" -D_JNI_IMPLEMENTATION_ -DBOOT_LIBRARY -c src/main.cpp -o main.o
+
+2 Link the main.o to the avian code
+i686-w64-mingw32-gcc *.o libavian/*.o -L"../win32/lib" -lmingwthrd -lm -lz -lws2_32 -mwindows -mconsole -o main.exe 2>compileLog.txt
